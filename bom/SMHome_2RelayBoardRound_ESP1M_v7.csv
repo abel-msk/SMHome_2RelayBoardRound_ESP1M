@@ -1,0 +1,34 @@
+#;Reference;Qty;Value;Footprint;comments;DNP;descr;Description
+1;B1,B2;2;Button;Button_switch_SMD_Local:SW_Push_SPST_NO_Alps_SKRK_HandSoldering;SMD Btn 3*4*2 мм;;;
+2;C2;1;4,7uF;Capacitor_THT:CP_Radial_D8.0mm_P3.80mm;400v;;;400v
+3;C5;1;680uF;Capacitor_THT:CP_Radial_D6.3mm_P2.50mm;10v;;;
+4;C7;1;4,7uF;Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder;10v;;;
+5;C8;1;10uF;Capacitor_Tantalum_SMD:CP_EIA-3528-21_Kemet-B;"6v; Tantalum SMD B";;;
+6;C1,C4,C6,C10,C11,C14,C15,C16,C17;9;100nF;Capacitor_SMD:C_0805_2012Metric;6v;;;
+7;C3,C9;2;1uF;Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder;10v;;;
+8;D3;1;blue_led;LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder;;;;
+9;D7;1;ES1J;Diode_SMD:D_SMA;;;;tr=35ns
+10;D8;1;E1J;Diode_SMD:D_SOD-123F;;;;"tr<500ns; 1A; 600v"
+11;D1,D2,D6;3;1N4007W (A7);Diode_SMD:D_SOD-123F;;;;
+12;D4,D5;2;green_led;LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder;;;;
+13;D9,D10,D11,D12,D13;5;PESD3V3L1BA;Diode_SMD:D_SOD-323_HandSoldering;;;;
+14;DB1;1;MB8S;Diode_local:MBS;D_Bridge_+-AA;;;D_Bridge_+-AA
+15;F1;1;250v/0.12A;Fuse_Local:RF145_D6.5mm_W4mm;RF146;;DNP;
+16;J2;1;K128_P7;Connector_Phoenix_MPT:Phoenix Contact_MPT-0,5_7_2,54_P7;"KF128; Srew connector";;DNP;
+17;J3;1;PinHead;Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical;;;DNP;Dupont 2.54 male
+18;J4;1;220V;TerminalBlock_Degson:DG301-5.0-05P;;;DG301-5.0-05P;
+19;JP3;1;jmp3;Jumper:SolderJumper-3_P1.3mm_Open_RoundedPad1.0x1.5mm_NumberLabels;;;DNP;
+20;L1;1;320uH;Inductor_THT:L_Radial_D10.0mm_P5.00mm_Fastron_07P;;;DNP;
+21;Q1,Q2;2;BC817;Package_TO_SOT_SMD:SOT-23;;;;
+22;R5;1;10;Resistor_THT:R_Axial_DIN0414_L11.9mm_D4.5mm_P5.08mm_Vertical;1w;;1w;
+23;R14;1;0,3;Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder;1206;;1206;
+24;R26;1;40,2R;Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder;Tolerance 0,1%;;;
+25;R1,R6,R9;3;10K;Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder;;;;
+26;R11,R12,R13,R15,R19,R27;6;100R;Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder;;;;
+27;R2,R3,R4,R7,R8,R10;6;1k;Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder;;;;
+28;RL1,RL2;2;RJ-SS-105DM1;Relay_THT_Local:RJ-SS-105DM1;;;DNP;Wangrong Micro relay DIP reed relay, SPST, 5A, 220V
+29;TP2,TP3,TP4,TP5;4;TestPoint;TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm;;;DNP;
+30;U1;1;ESP-01M;WIFI_Module:ESP-01M;;;DNP;
+31;U2;1;BP2525F;Package_SO_Local:SOT33-5;;;;
+32;U4;1;AMS1117-3.3;Package_TO_SOT_SMD:SOT-223-3_TabPin2;;;;
+33;VR1;1;07D471K;Varistor:RV_Disc_D9mm_W3.3mm_P5mm;"07D471K; 300V";;DNP;

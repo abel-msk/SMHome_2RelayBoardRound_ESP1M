@@ -1,0 +1,18 @@
+### Footprint positions - created on 2025-02-21T00:55:04+0300 ###
+### Printed by KiCad version 8.0.8
+## Unit = mm, Angle = deg.
+## Side : top
+# Ref     Val          Package                                             PosX       PosY       Rot  Side
+B1        Button       SW_Push_SPST_NO_Alps_SKRK_HandSoldering           7.4930     9.3218    0.0000  top
+B2        Button       SW_Push_SPST_NO_Alps_SKRK_HandSoldering         -17.4752     9.8552  180.0000  top
+C1        100nF        C_0805_2012Metric                                 4.4958    21.6154   90.0000  top
+C6        100nF        C_0805_2012Metric                                 2.2098    21.5646   90.0000  top
+C8        10uF         CP_EIA-3528-21_Kemet-B                           12.2174    24.0030  180.0000  top
+C17       100nF        C_0805_2012Metric                               -20.4978    14.7952   90.0000  top
+D3        blue_led     LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder     8.5598    13.9492  180.0000  top
+D4        green_led    LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder   -13.6004    13.9492  180.0000  top
+D5        green_led    LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder    -6.0706    13.9492  180.0000  top
+R4        1k           R_0603_1608Metric_Pad0.98x0.95mm_HandSolder     -17.0688    15.3670    0.0000  top
+R8        1k           R_0603_1608Metric_Pad0.98x0.95mm_HandSolder      -9.5758    15.5702    0.0000  top
+U4        AMS1117-3.3  SOT-223-3_TabPin2                                19.5406    22.8198    0.0000  top
+## End
