@@ -1,7 +1,7 @@
 (kicad_sch
-	(version 20231120)
+	(version 20250114)
 	(generator "eeschema")
-	(generator_version "8.0")
+	(generator_version "9.0")
 	(uuid "d7bb797a-6131-4b58-ba68-539f16f5a815")
 	(paper "A4")
 	(title_block
@@ -10,9 +10,13 @@
 	)
 	(lib_symbols
 		(symbol "C_Small_1"
-			(pin_numbers hide)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
-				(offset 0.254) hide)
+				(offset 0.254)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -107,10 +111,10 @@
 			(symbol "C_Small_1_0_1"
 				(polyline
 					(pts
-						(xy -1.524 -0.508) (xy 1.524 -0.508)
+						(xy -1.524 0.508) (xy 1.524 0.508)
 					)
 					(stroke
-						(width 0.3302)
+						(width 0.3048)
 						(type default)
 					)
 					(fill
@@ -119,10 +123,10 @@
 				)
 				(polyline
 					(pts
-						(xy -1.524 0.508) (xy 1.524 0.508)
+						(xy -1.524 -0.508) (xy 1.524 -0.508)
 					)
 					(stroke
-						(width 0.3048)
+						(width 0.3302)
 						(type default)
 					)
 					(fill
@@ -168,10 +172,13 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "Connector_Generic:Conn_01x07"
 			(pin_names
-				(offset 1.016) hide)
+				(offset 1.016)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -238,52 +245,19 @@
 			)
 			(symbol "Conn_01x07_1_1"
 				(rectangle
-					(start -1.27 -7.493)
-					(end 0 -7.747)
+					(start -1.27 8.89)
+					(end 1.27 -8.89)
 					(stroke
-						(width 0.1524)
+						(width 0.254)
 						(type default)
 					)
 					(fill
-						(type none)
+						(type background)
 					)
 				)
 				(rectangle
-					(start -1.27 -4.953)
-					(end 0 -5.207)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start -1.27 -2.413)
-					(end 0 -2.667)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start -1.27 0.127)
-					(end 0 -0.127)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start -1.27 2.667)
-					(end 0 2.413)
+					(start -1.27 7.747)
+					(end 0 7.493)
 					(stroke
 						(width 0.1524)
 						(type default)
@@ -304,8 +278,8 @@
 					)
 				)
 				(rectangle
-					(start -1.27 7.747)
-					(end 0 7.493)
+					(start -1.27 2.667)
+					(end 0 2.413)
 					(stroke
 						(width 0.1524)
 						(type default)
@@ -315,14 +289,47 @@
 					)
 				)
 				(rectangle
-					(start -1.27 8.89)
-					(end 1.27 -8.89)
+					(start -1.27 0.127)
+					(end 0 -0.127)
 					(stroke
-						(width 0.254)
+						(width 0.1524)
 						(type default)
 					)
 					(fill
-						(type background)
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 -2.413)
+					(end 0 -2.667)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 -4.953)
+					(end 0 -5.207)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 -7.493)
+					(end 0 -7.747)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
 					)
 				)
 				(pin passive line
@@ -452,11 +459,16 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "Device:C_Small"
-			(pin_numbers hide)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
-				(offset 0.254) hide)
+				(offset 0.254)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -526,10 +538,10 @@
 			(symbol "C_Small_0_1"
 				(polyline
 					(pts
-						(xy -1.524 -0.508) (xy 1.524 -0.508)
+						(xy -1.524 0.508) (xy 1.524 0.508)
 					)
 					(stroke
-						(width 0.3302)
+						(width 0.3048)
 						(type default)
 					)
 					(fill
@@ -538,10 +550,10 @@
 				)
 				(polyline
 					(pts
-						(xy -1.524 0.508) (xy 1.524 0.508)
+						(xy -1.524 -0.508) (xy 1.524 -0.508)
 					)
 					(stroke
-						(width 0.3048)
+						(width 0.3302)
 						(type default)
 					)
 					(fill
@@ -587,11 +599,16 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "Device:R_Small"
-			(pin_numbers hide)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
-				(offset 0.254) hide)
+				(offset 0.254)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -709,10 +726,13 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "Jumper:Jumper_3_Open"
 			(pin_names
-				(offset 0) hide)
+				(offset 0)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -814,9 +834,9 @@
 			)
 			(symbol "Jumper_3_Open_0_1"
 				(arc
-					(start -0.254 1.016)
+					(start -3.048 1.016)
 					(mid -1.651 1.4992)
-					(end -3.048 1.016)
+					(end -0.254 1.016)
 					(stroke
 						(width 0)
 						(type default)
@@ -838,9 +858,9 @@
 					)
 				)
 				(arc
-					(start 3.048 1.016)
+					(start 0.254 1.016)
 					(mid 1.651 1.4992)
-					(end 0.254 1.016)
+					(end 3.048 1.016)
 					(stroke
 						(width 0)
 						(type default)
@@ -906,11 +926,16 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "Power_Protection_Local:PESD3V3L1BA"
-			(pin_numbers hide)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
-				(offset 0.254) hide)
+				(offset 0.254)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -978,6 +1003,18 @@
 			(symbol "PESD3V3L1BA_0_1"
 				(polyline
 					(pts
+						(xy -1.651 -1.016) (xy -0.127 0) (xy -1.651 1.016) (xy -1.651 -1.016)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
 						(xy -0.506 -1.1163) (xy 0.002 -1.1163) (xy 0.002 0.9157)
 					)
 					(stroke
@@ -998,18 +1035,6 @@
 					)
 					(fill
 						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.651 -1.016) (xy -0.127 0) (xy -1.651 1.016) (xy -1.651 -1.016)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type outline)
 					)
 				)
 				(polyline
@@ -1063,6 +1088,7 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "power:+3V3"
 			(power)
@@ -1140,7 +1166,7 @@
 				)
 				(polyline
 					(pts
-						(xy 0 0) (xy 0 2.54)
+						(xy 0 2.54) (xy 0.762 1.27)
 					)
 					(stroke
 						(width 0)
@@ -1152,7 +1178,7 @@
 				)
 				(polyline
 					(pts
-						(xy 0 2.54) (xy 0.762 1.27)
+						(xy 0 0) (xy 0 2.54)
 					)
 					(stroke
 						(width 0)
@@ -1166,7 +1192,8 @@
 			(symbol "+3V3_1_1"
 				(pin power_in line
 					(at 0 0 90)
-					(length 0) hide
+					(length 0)
+					(hide yes)
 					(name "+3V3"
 						(effects
 							(font
@@ -1183,6 +1210,7 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "power:GND"
 			(power)
@@ -1262,7 +1290,8 @@
 			(symbol "GND_1_1"
 				(pin power_in line
 					(at 0 0 270)
-					(length 0) hide
+					(length 0)
+					(hide yes)
 					(name "GND"
 						(effects
 							(font
@@ -1279,7 +1308,118 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
+	)
+	(text "External button\nconnector"
+		(exclude_from_sim no)
+		(at 192.405 69.85 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "14fc5f03-2292-4b66-8eb4-3a7ba4d99b9d")
+	)
+	(text "PulledUp"
+		(exclude_from_sim no)
+		(at 121.92 156.21 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "18de450d-2ef9-4c5f-83dc-0918e137dbb7")
+	)
+	(text "PulledUp by MCU"
+		(exclude_from_sim no)
+		(at 98.425 55.245 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "1ba84e03-4f98-40cc-a3c3-71eea19a77bb")
+	)
+	(text "PulledUp"
+		(exclude_from_sim no)
+		(at 121.92 113.03 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "541aa0fa-cfe4-467c-abe8-3f022aed2d35")
+	)
+	(text "High - 3v3\nLow  - 0v"
+		(exclude_from_sim no)
+		(at 121.92 144.145 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "70b401ae-8a35-4970-8a57-5607fd0c874c")
+	)
+	(text "High - 3v3\nLow  - 0v"
+		(exclude_from_sim no)
+		(at 121.92 121.92 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "7cfe7dee-e0ea-4fc1-89c5-e65d190c3e56")
+	)
+	(text "High - 3v3\nLow  - 0v"
+		(exclude_from_sim no)
+		(at 121.92 102.235 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "9e3f91f5-1959-494a-96bc-2dbb7ccb5259")
+	)
+	(text "PulledUp"
+		(exclude_from_sim no)
+		(at 121.92 135.255 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "ab23e3ca-49f7-43ad-9578-cb31942efd9b")
+	)
+	(text "PulledUp by MCU"
+		(exclude_from_sim no)
+		(at 121.92 93.345 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "f17ad066-c367-4a0c-9023-e44333663ebc")
+	)
+	(text "High - 3v3\nLow  - 0v"
+		(exclude_from_sim no)
+		(at 121.92 165.735 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "fee287db-f10c-4a96-aae7-605e91823a96")
 	)
 	(junction
 		(at 116.205 108.585)
@@ -2142,116 +2282,6 @@
 			(type default)
 		)
 		(uuid "ff331e41-7ba5-45bf-9696-ed198e13c3be")
-	)
-	(text "External button\nconnector"
-		(exclude_from_sim no)
-		(at 192.405 69.85 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "14fc5f03-2292-4b66-8eb4-3a7ba4d99b9d")
-	)
-	(text "PulledUp"
-		(exclude_from_sim no)
-		(at 121.92 156.21 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "18de450d-2ef9-4c5f-83dc-0918e137dbb7")
-	)
-	(text "PulledUp by MCU"
-		(exclude_from_sim no)
-		(at 98.425 55.245 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "1ba84e03-4f98-40cc-a3c3-71eea19a77bb")
-	)
-	(text "PulledUp"
-		(exclude_from_sim no)
-		(at 121.92 113.03 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "541aa0fa-cfe4-467c-abe8-3f022aed2d35")
-	)
-	(text "High - 3v3\nLow  - 0v"
-		(exclude_from_sim no)
-		(at 121.92 144.145 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "70b401ae-8a35-4970-8a57-5607fd0c874c")
-	)
-	(text "High - 3v3\nLow  - 0v"
-		(exclude_from_sim no)
-		(at 121.92 121.92 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "7cfe7dee-e0ea-4fc1-89c5-e65d190c3e56")
-	)
-	(text "High - 3v3\nLow  - 0v"
-		(exclude_from_sim no)
-		(at 121.92 102.235 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "9e3f91f5-1959-494a-96bc-2dbb7ccb5259")
-	)
-	(text "PulledUp"
-		(exclude_from_sim no)
-		(at 121.92 135.255 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "ab23e3ca-49f7-43ad-9578-cb31942efd9b")
-	)
-	(text "PulledUp by MCU"
-		(exclude_from_sim no)
-		(at 121.92 93.345 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "f17ad066-c367-4a0c-9023-e44333663ebc")
-	)
-	(text "High - 3v3\nLow  - 0v"
-		(exclude_from_sim no)
-		(at 121.92 165.735 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "fee287db-f10c-4a96-aae7-605e91823a96")
 	)
 	(global_label "AC_SENS"
 		(shape input)

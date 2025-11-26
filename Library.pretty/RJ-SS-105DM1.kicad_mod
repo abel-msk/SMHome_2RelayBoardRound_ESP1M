@@ -1,0 +1,234 @@
+(footprint "RJ-SS-105DM1"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(descr "MICRO RELAY WRG RJ-SS-105DM1, 5A, 220V")
+	(tags "MICRO RELAY WRG RJ-SS-105DM1")
+	(property "Reference" "REF**"
+		(at -7.2434 -0.0858 90)
+		(layer "F.SilkS")
+		(uuid "db5aa00d-2922-4862-8838-c16d586b36a8")
+		(effects
+			(font
+				(size 0.8 0.8)
+				(thickness 0.1)
+			)
+		)
+	)
+	(property "Value" "RJ-SS-105DM1"
+		(at 10.0838 -0.2794 90)
+		(layer "F.Fab")
+		(uuid "f411cc85-e2f6-4d14-9c23-6051996972d6")
+		(effects
+			(font
+				(size 0.8 0.8)
+				(thickness 0.1)
+			)
+		)
+	)
+	(property "Datasheet" "https://datasheet.lcsc.com/lcsc/2009171003_WRG-Wangrong-RJ-SS-105LM_C358576.pdf"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "ce83eaa5-d008-4fb6-8f5b-a92feee984bd")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" "Wangrong Micro relay DIP reed relay, SPST, 5A, 220V"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "4304d86c-c9dc-42b0-9ecf-441d7bc185db")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "descr" "DNP"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "10b9a9c9-7ba6-4aa3-b799-f7d90397bd22")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr exclude_from_pos_files)
+	(fp_line
+		(start -8.99922 -5.3975)
+		(end -8.99922 4.79806)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "b0699f25-660d-4d1a-9dfd-fadcb8b59c56")
+	)
+	(fp_line
+		(start -8.99922 4.79806)
+		(end 9.19988 4.79806)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "17726791-3525-4fea-844b-7e943eb0fbe9")
+	)
+	(fp_line
+		(start 9.19988 -5.3975)
+		(end -8.99922 -5.3975)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "1c96dffc-679b-425f-a77b-fcce0e70b5f3")
+	)
+	(fp_line
+		(start 9.19988 4.79806)
+		(end 9.19988 -5.3975)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "cd63fdd8-fdfc-4a6a-a918-8c8fd6196db5")
+	)
+	(fp_line
+		(start -9.1948 -5.6388)
+		(end 9.4488 -5.6388)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "4c3721f9-6a83-4e33-9e9e-7beb0a428e0a")
+	)
+	(fp_line
+		(start -9.1948 5.08)
+		(end -9.1948 -5.6388)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "32d54251-9795-47ae-8067-90181412af2a")
+	)
+	(fp_line
+		(start 9.4488 -5.6388)
+		(end 9.4488 5.08)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "a8df72cc-dc0f-4d10-a04b-a77231d32559")
+	)
+	(fp_line
+		(start 9.4488 5.08)
+		(end -9.1948 5.08)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "30a2e161-138f-4587-882a-2f162140af53")
+	)
+	(fp_line
+		(start -9.0424 -5.3848)
+		(end 9.144 -5.4356)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "e96cd36b-1bd8-4850-94b4-02993c80ba37")
+	)
+	(fp_line
+		(start -8.9916 4.7752)
+		(end -8.9916 -5.3848)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "6db51fa3-9c3e-48f8-a775-c4b3191fb50e")
+	)
+	(fp_line
+		(start 9.144 -5.4356)
+		(end 9.144 4.7752)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "6803a4f7-d16e-4330-ab9f-71c3a5ab6c20")
+	)
+	(fp_line
+		(start 9.144 4.7752)
+		(end -8.9916 4.7752)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "413772ed-c336-4c4e-9702-17674f5a1f24")
+	)
+	(pad "11" thru_hole circle
+		(at 7.73938 -4.09956)
+		(size 2.5 2.5)
+		(drill 1.29794)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "9cc83284-a904-4298-8d27-e0351f928988")
+	)
+	(pad "14" thru_hole circle
+		(at 5.19938 3.49758)
+		(size 2.5 2.5)
+		(drill 1.29794)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "bb07b3aa-1550-43f6-b396-538b736a71a7")
+	)
+	(pad "A1" thru_hole circle
+		(at -7.49808 -4.09956)
+		(size 2.5 2.5)
+		(drill 1.29794)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "931d85ae-8a4a-4152-9da3-816b7023d382")
+	)
+	(pad "A2" thru_hole circle
+		(at -7.49808 3.49758)
+		(size 2.5 2.5)
+		(drill 1.29794)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "f69a0374-4ca6-4fba-a332-2fb52876c773")
+	)
+	(embedded_fonts no)
+	(model "${KIKAD_USER_3DMODELS}/RJ-SS-105DM1 v2.step"
+		(offset
+			(xyz -1.3 0.25 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 180 0 0)
+		)
+	)
+)
