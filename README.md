@@ -1,4 +1,4 @@
-# SMHome 2RelayBoardRound ESP-01M — revision 8
+# SMHome 2RelayBoardRound ESP-01M — revision 8.1
 
 **English** · [Русский](README.ru.md)
 
@@ -8,11 +8,11 @@ A round, two-layer Wi-Fi controller for roller shutters with two relay outputs, 
 
 ![Revision 8, underside](images/v8-3d-bottom.png)
 
-These images were rendered from the revision 8 PCB in KiCad before the subsequent DNP and mounting-hole updates; they show the populated design for illustration. Available footprint models are used; some packages are missing or represented by approximate models. The images are not a mechanical clearance check.
+These images were rendered from the revision 8 PCB in KiCad before the subsequent assembly-flag and mounting-hole updates; they show the populated design for illustration. Available footprint models are used; some packages are missing or represented by approximate models. The images are not a mechanical clearance check.
 
 ## Project files
 
-Open `SMHome_2RelayBoardRound_ESP1M_v7.kicad_pro` in **KiCad 10**. Filenames retain the historical `_v7` suffix; `VERSION`, schematic/PCB title blocks and board revision silkscreen identify the current revision as **8**.
+Open `SMHome_2RelayBoardRound_ESP1M_v7.kicad_pro` in **KiCad 10**. Filenames retain the historical `_v7` suffix; `VERSION`, schematic/PCB title blocks and board revision silkscreen identify the current revision as **8.1**.
 
 | File | Contents |
 |---|---|
@@ -61,9 +61,9 @@ For a window contact closed when the window is closed, an open window and a brok
 
 ### Assembly flags and mounting holes
 
-The through-hole components **C2, C5, F1, J2, J3, J4, L1, R5, RL1, RL2 and VR1** are marked **Do Not Populate (DNP)** in both schematic and PCB. They remain part of the electrical design, but the current assembly marking omits them.
+The through-hole components **C2, C5, F1, J2, J3, J4, L1, R5, RL1, RL2 and VR1** are intended for **manual assembly**. DNP is disabled and they remain in the BOM; **Exclude from position files** is enabled in both schematic and PCB. They therefore remain visible on the schematic and in 3D while being omitted from pick-and-place output.
 
-Former TP2–TP5 are now **H1–H4**, non-plated mounting holes with a **1.8 mm drill** at the original centres. They have no electrical pins and are excluded from the BOM and placement files. The matching footprint is included in `Mechanical_Local.pretty`, referenced through `${KIPRJMOD}`.
+Former TP2–TP5 are now **H1–H4**, non-plated mounting holes with a **1.8 mm drill**. Their centres form a **32 × 32 mm square**, with horizontal and vertical sides, centred on the outer board outline. They have no electrical pins and are excluded from the BOM and placement files. The matching footprint is included in `Mechanical_Local.pretty`, referenced through `${KIPRJMOD}`.
 
 ## Connector pinouts
 
@@ -137,7 +137,15 @@ The project uses standard KiCad libraries plus custom libraries referenced by `s
 
 The PNG renders are included so the board can be viewed on GitHub without those libraries. Older `images/3dview.png` and `images/top.png` are not revision 8 illustrations.
 
-## Revision 8 and verification status
+## Revision 8.1 and verification status
+
+Changes in 8.1:
+
+- Through-hole components remain fitted and in the BOM, but are excluded from placement files for manual assembly.
+- Mounting-hole centres aligned to a board-centred **32 × 32 mm square**; drill diameter remains **1.8 mm**, non-plated.
+- Revision updated in project metadata and board silkscreen.
+
+Changes inherited from revision 8:
 
 - Updated component population and routing; five external 4.7 kΩ input pull-ups added.
 - R26 moved exclusively into the ADC branch; R16 placed on SW3 so it does not bias ADC mode.
@@ -156,4 +164,4 @@ Checks performed with KiCad 10.0.8 on **2026-11-18**, against the saved project:
 
 The minimum thermal-spoke requirement is now 1 for the board; J2.7 has a local thermal gap of 0.25 mm. DRC warnings include 28 footprint-library mismatches, 21 silkscreen/edge clearances and 7 isolated copper areas. ERC includes unconnected pins, the unmatched `AC_SENS` hierarchical sheet pin, a pin-type conflict and power-input declarations; most warnings are off-grid endpoints and symbol-library mismatches. The `JP2` text beside J2.6 is a legacy label; that terminal is +3V3.
 
-**Revision 8 is a saved development revision, not a fabrication-ready or safety-certified release.** Remaining electrical/layout issues, motor interlocking, external insulation and final mechanical fit require resolution/validation before manufacture or mains operation. No hardware measurements, new SPICE simulations or full compliance assessment were performed for this documentation update.
+**Revision 8.1 is a saved development revision, not a fabrication-ready or safety-certified release.** Remaining electrical/layout issues, motor interlocking, external insulation and final mechanical fit require resolution/validation before manufacture or mains operation. No hardware measurements, new SPICE simulations or full compliance assessment were performed for this documentation update.
