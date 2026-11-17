@@ -1,137 +1,153 @@
-# SMHome 2RelayBoardRound ESP-01M — версия 7.1
+# SMHome 2RelayBoardRound ESP-01M — revision 8
 
-Круглая двухрелейная плата управления рольставнями и другими механизмами с двумя направлениями движения. Контроллер — **ESP-01M на ESP8285** (семейство ESP8266, встроенная Flash 1 МБ). Плата рассчитана на размещение в закрытом корпусе, в том числе за настенным выключателем при достаточном месте и соблюдении требований электробезопасности.
+**English** · [Русский](README.ru.md)
 
-Проект содержит схему, двухслойную печатную плату и локальные библиотеки KiCad. Прошивка в репозиторий не входит. Названия основных файлов сохраняют суффикс `_v7`; текущая ревизия проекта и маркировка на плате — **7.1**.
+A round, two-layer Wi-Fi controller for roller shutters with two relay outputs, three wall-button inputs and two window reed-switch inputs. The controller is an **ESP-01M module with ESP8285 and 1 MB Flash**. Firmware is not included.
 
-## Основные узлы
+![Revision 8, component side](images/v8-3d-top.png)
 
-- **U1 ESP-01M:** Wi-Fi и управление входами/реле.
-- **RL1/RL2 RJ-SS-105DM1:** два независимых нормально разомкнутых реле с катушками 5 В.
-- **Q1/Q2 BC817:** ключи катушек; D1/D2 подавляют выбросы при отключении, D4/D5 показывают включение реле.
-- **U2 BP2525F:** безразвязочный сетевой понижающий преобразователь на 5 В.
-- **U4 AMS1117-3.3:** стабилизатор питания логики на 3,3 В; большая площадка корпуса соединена с выходом, контакт 2.
-- **B1:** сброс ESP. **B2:** GPIO0/вход в загрузчик при удержании во время сброса.
-- **J2:** внешние кнопки/датчики, питание логики и выбираемый вход SW3/ADC.
-- **J3:** UART для прошивки и диагностики.
-- **JP3:** выбор подключения сигнала J2.2 к GPIO4/SW3 либо ADC.
+![Revision 8, underside](images/v8-3d-bottom.png)
 
-Схема состоит из трёх листов:
+These images were rendered from the revision 8 PCB in KiCad. Available footprint models are used; some packages are missing or represented by approximate models. The images are not a mechanical clearance check.
 
-| Файл | Содержимое |
+## Project files
+
+Open `SMHome_2RelayBoardRound_ESP1M_v7.kicad_pro` in **KiCad 10**. Filenames retain the historical `_v7` suffix; `VERSION`, schematic/PCB title blocks and board revision silkscreen identify the current revision as **8**.
+
+| File | Contents |
 |---|---|
-| `SMHome_2RelayBoardRound_ESP1M_v7.kicad_sch` | ESP, кнопки, индикаторы, ключи и катушки реле |
-| `PowerSupply.kicad_sch` | Сетевой вход, защита, источник питания и силовые подключения |
-| `ExtConnectors.kicad_sch` | Внешние входы, фильтры, защита и перемычка ADC |
+| `SMHome_2RelayBoardRound_ESP1M_v7.kicad_sch` | Root sheet: ESP module, relay drivers, indicators and programming connector |
+| `PowerSupply.kicad_sch` | Mains protection, power conversion and power terminals |
+| `ExtConnectors.kicad_sch` | Button/reed inputs, pull-ups, filters, protection and ADC selector |
+| `SMHome_2RelayBoardRound_ESP1M_v7.kicad_pcb` | Two-layer PCB |
 
-## Питание и безопасность
+`MCU_STM32.kicad_sch` is a legacy file, not a sheet of the current ESP project. Existing Gerbers, plots, BOM exports and older images are historical outputs; regenerate manufacturing files from the current sources.
 
-**Источник на BP2525F не имеет гальванической развязки от сети.** GND платы соединена с минусом выпрямительного моста DB1. Обозначения 3,3 В и 5 В относятся к этой GND и не означают безопасное изолированное напряжение.
+## How the circuit works
 
-- J4.1 — логическая GND, **не защитное заземление PE**. Не использовать этот контакт для защитного проводника двигателя.
-- Внешние устройства на J2 и программатор на J3 должны учитывать сетевой потенциал платы. Непосредственно подключать обычный USB-UART или заземлённый осциллограф при сетевом питании нельзя.
-- Для обычной прошивки полностью отключить плату от L/N и других сетевых цепей и питать логику от изолированного источника 3,3 В.
-- F1 находится только в ветви источника питания. Силовой ток двигателя через него не проходит; защита двигателя и силовой проводки должна обеспечиваться отдельно.
-- Контакты реле имеют паспортный номинал 10 А/250 VAC для резистивной нагрузки. Это не допустимый ток произвольного двигателя: необходимо учитывать пусковой ток, моторный рейтинг реле и требования привода.
+### Power supply
 
-## Силовой разъём J4
+The mains supply enters through **J4**. **F1** protects the power-supply branch; **VR1 07D471K** is connected between the fused live rail and neutral. **DB1 MB8S** rectifies the input. **U2 BP2525F**, **L1 320 µH**, the switching diodes and capacitors form a non-isolated buck supply for **+5 V**. **R14 = 0.3 Ω** is the switching-current sense resistor. **C5 = 680 µF** provides output bulk capacitance.
 
-| Контакт | Сеть | Назначение |
-|---|---|---|
-| 1 | GND | Общий провод электроники, не PE |
-| 2 | N | Нейтраль сети |
-| 3 | L | Фаза сети и питание общих цепей контактов реле |
-| 4 | RL2 | Фаза через нормально разомкнутый контакт RL2 |
-| 5 | RL1 | Фаза через нормально разомкнутый контакт RL1 |
+**U4 AMS1117-3.3** supplies the ESP and input pull-ups from the +5 V rail. Its SOT-223 tab/pin 2 is connected to **+3V3**, not GND. The BP2525F DRAIN copper area is part of the high-voltage switching circuit.
 
-**Аппаратной взаимной блокировки направлений в этой схеме нет.** Независимое включение RL1 и RL2 позволяет подать фазу на оба выхода одновременно. Перед применением с реверсивным приводом необходимо решить аппаратную блокировку. Прошивка также должна запрещать одновременное включение, отключать реле перед реверсом, выдерживать требуемую приводом паузу и ограничивать время движения.
+**There is no galvanic isolation from the mains.** GND is connected to the rectifier negative rail. The 3.3 V and 5 V labels describe voltages relative to this GND; they do not identify a touch-safe supply. Do not connect GND to protective earth (PE). The enclosure, external switches, reed sensors, cables and connections must provide insulation suitable for the mains-related circuit. A small voltage across a contact does not make either conductor safe relative to earth.
 
-## Управление и внешние входы
+### Relay outputs
 
-| Функция | GPIO ESP | Контакт модуля U1 |
-|---|---:|---:|
-| Реле RL1 | GPIO5 | 13 |
-| Реле RL2 | GPIO12 | 14 |
-| SW1 | GPIO10 | 12 |
-| SW2 | GPIO2 | 7 |
-| SW3 | GPIO4 | 10 |
-| SN1 | GPIO15 | 6 |
-| SN2 | GPIO13 | 5 |
-| Индикатор D3 | GPIO9 | 11 |
-| Кнопка B2 / загрузчик | GPIO0 | 8 |
-| Аналоговый вход | ADC | 16 |
+**RL1/RL2 RJ-SS-105DM1** have 5 V coils and independent normally-open power contacts. **Q1/Q2 BC817** switch the coils through base resistors **R3/R7 = 1 kΩ**. **R1/R6 = 10 kΩ** pull the control signals down. **D1/D2** suppress coil turn-off transients; **D4/D5** indicate coil energization through **R4/R8 = 1 kΩ**.
 
-| Контакт J2 | Подключение |
-|---|---|
-| 1 | Не подключён |
-| 2 | SW1 через R11; дополнительно SW3 либо ADC через R26 и JP3 |
-| 3 | SW2 через R12 |
-| 4 | SN1 через R13 |
-| 5 | SN2 через R15 |
+Both contact circuits switch the live rail to separate motor-direction outputs. **The circuit has no hardware direction interlock**: both outputs can be energized together. A shutter installation needs a suitable interlock strategy. Firmware must also enforce mutually exclusive outputs, a motor-appropriate reversal delay and a movement timeout. Motor suitability requires checking the relay's inductive-load/inrush ratings; a resistive-load rating is insufficient.
+
+### Buttons and window contacts
+
+**SW1–SW3** are wall-button inputs; **SN1/SN2** are window reed-switch inputs. Each external dry contact closes its signal to **J2.7 / GND**. No external live voltage may be applied to J2.
+
+All five channels have **4.7 kΩ pull-ups to +3V3** and **100 nF capacitors to GND**: open contact = HIGH, closed contact = LOW. The approximate closed-contact current is **0.7 mA**; switch contacts must be reliable at this small signal current.
+
+| Input | GPIO / U1 pin | Pull-up | Series resistor | Capacitor | ESD diode |
+|---|---|---|---|---|---|
+| SW1 | GPIO10 / 12 | R17, 4.7 kΩ | R11, 100 Ω | C11, 100 nF | D10 |
+| SW2 | GPIO16 / 17 | R18, 4.7 kΩ | R12, 100 Ω | C14, 100 nF | D11 |
+| SW3 | GPIO4 / 10 | R16, 4.7 kΩ | None in the digital branch | C17, 100 nF | D9 |
+| SN1 | GPIO14 / 15 | R20, 4.7 kΩ | R13, 100 Ω | C15, 100 nF | D12 |
+| SN2 | GPIO13 / 5 | R21, 4.7 kΩ | R15, 100 Ω | C16, 100 nF | D13 |
+
+**D9–D13 are PESD3V3L1BA** protection devices. R17/R18/R20/R21 connect on the connector side of the 100 Ω resistors; R16 connects directly to SW3, on the GPIO side of JP3. R26 belongs only to the ADC branch and does not serve as a series resistor for the SW3 button.
+
+For approximately 2 m runs, use one twisted pair per input: **signal + circuit GND**. Cable insulation must suit the mains-related circuit; Ethernet category alone is not an insulation rating. Keep these cables away from motor/mains switching conductors. Add firmware debounce, for example 20–50 ms of stable input. Use plain input mode when external pull-ups are fitted. GPIO16 has no internal pull-up and should be polled rather than used with ESP8266 Arduino `attachInterrupt`.
+
+For a window contact closed when the window is closed, an open window and a broken cable both produce HIGH. This is not a supervised loop and cannot distinguish those conditions.
+
+## Connector pinouts
+
+### J2 — buttons, reed switches and selectable ADC input
+
+| Pin | Function |
+|---:|---|
+| 1 | SW3 or ADC, selected by JP3 |
+| 2 | SW1 |
+| 3 | SW2 |
+| 4 | SN1 |
+| 5 | SN2 |
 | 6 | +3V3 |
-| 7 | GND |
+| 7 | GND; common contact return, not PE |
 
-GPIO2 должен иметь высокий уровень при загрузке ESP, GPIO15 — низкий. Внешние кнопки и датчики не должны нарушать эти условия при включении и сбросе. Встроенные подтяжки модуля не защищают от принудительного уровня внешнего устройства.
+### JP3 — digital/analog selection
 
-### JP3 и делитель ADC
-
-- Замкнуты **1–2:** J2.2 подключён через R26 к SW3/GPIO4.
-- Замкнуты **2–3:** J2.2 подключён через R26 к ADC.
-- Одновременно замыкать оба положения не следует.
-
-В версии 7.1 **R26 = 3 кОм, R27 = 1 кОм**. Для источника напряжения с малым выходным сопротивлением:
+- **1–2 closed:** J2.1 connects to SW3/GPIO4. R16 pulls this input up; the external button closes it to GND.
+- **2–3 closed:** J2.1 feeds the ADC through R26. R16 and C17 remain on the disconnected GPIO4 branch.
+- Do not bridge both positions at once.
 
 ```text
-J2.2 ── R26 3k ── JP3 2–3 ── ADC
-                               │
-                            R27 1k
-                               │
-                              GND
-
-Uadc = Uin / 4
-Uin = Uadc × 4
+J2.1 ── JP3 2–3 ── R26 3 kΩ ──┬── ADC (U1.16)
+                                │
+                             R27 1 kΩ
+                                │
+                               GND
 ```
 
-При 3,3 В на J2.2 получается 0,825 В на ADC; при 3,6 В — 0,900 В. Входное сопротивление делителя — 4 кОм. Даже с допусками обоих резисторов ±5% максимальное расчётное напряжение ADC при входных 3,6 В составляет около 0,969 В, ниже паспортной полной шкалы 1 В.
+For a low-impedance voltage source, **Vadc = Vin / 4**. The divider presents approximately 4 kΩ input resistance: 3.3 V gives 0.825 V at the ADC; 3.6 V gives 0.900 V. With ±5% resistor tolerances, the worst-case ADC voltage at 3.6 V input is approximately 0.969 V. These are calculations, not measurements or simulation results. The ESP ADC range is 0–1 V. This input is not suitable for direct mains measurement or an unconditioned current-transformer output.
 
-J2.2 одновременно связан со SW1/GPIO10 через R11. В режиме ADC этот GPIO должен быть входом без подтяжек. Указанные номиналы рассчитаны для измерения напряжения; их нельзя автоматически применять к токовому датчику или трансформатору без проверки его параметров. Эти значения рассчитаны, а не измерены на собранной плате.
+### J3 — programming and reset, 3.3 V logic
 
-## UART J3
-
-| Контакт | Сигнал |
-|---|---|
+| Pin | Signal |
+|---:|---|
 | 1 | GND |
-| 2 | RX ESP, соединить с TX адаптера |
-| 3 | TX ESP, соединить с RX адаптера |
-| 4 | +3V3 |
+| 2 | +3V3 |
+| 3 | ESP RX; connect adapter TX |
+| 4 | ESP TX; connect adapter RX |
+| 5 | Flash / GPIO0, U1.8 |
+| 6 | NRST, U1.18; active LOW |
 
-Использовать логические уровни 3,3 В. Для входа в загрузчик удерживать B2/GPIO0 и выполнить сброс B1. Требования к изоляции и отключению сетевого питания приведены выше.
+The former on-board reset and boot buttons are removed. To enter the bootloader, hold GPIO0 LOW while pulsing NRST LOW, then release reset and GPIO0. Use the numbered pinout above; the old nearby `3v3` silkscreen text has not been relocated for the expanded header.
 
-## Открытие проекта и библиотеки
+**Disconnect all mains connections before programming** and supply the logic from an isolated 3.3 V source. Do not attach a conventional USB-UART adapter or an earth-referenced oscilloscope while mains power is present.
 
-Открыть `SMHome_2RelayBoardRound_ESP1M_v7.kicad_pro` в **KiCad 10**. Текущие сохранённые файлы используют формат KiCad 10.
+### J4 — mains and motor outputs
 
-Схема и плата используют стандартные библиотеки KiCad и пользовательские библиотеки этого компьютера. Неиспользуемые копии библиотек в папке проекта удалены. Таблицы `sym-lib-table` и `fp-lib-table` подключают пользовательские библиотеки по следующим путям:
+| Pin | Net | Function |
+|---:|---|---|
+| 1 | GND | Electronics common, not protective earth |
+| 2 | N | Mains neutral |
+| 3 | L | Mains live and relay contact supply |
+| 4 | RL2 | Switched live through relay RL2 |
+| 5 | RL1 | Switched live through relay RL1 |
 
-- Символы: `/Users/abel/Documents/KiCad/Symbols`.
-- Посадочные места: `/Users/abel/Documents/KiCad/libs`.
-- 3D-модели: `/Users/abel/Documents/KiCad/3DModels`, переменная KiCad `KIKAD_USER_3DMODELS`.
+F1 protects only the board supply branch, not motor current through the relay contacts. Provide appropriate upstream motor/wiring protection separately.
 
-На другом компьютере пути пользовательских библиотек нужно настроить заново. Одного клонирования репозитория недостаточно для воспроизведения всей внешней библиотечной среды. Стандартные библиотеки KiCad также должны быть установлены.
+### Relay GPIO mapping
 
-## Изменения версии 7.1
+| Function | GPIO | U1 pin |
+|---|---:|---:|
+| RL1 | 12 | 14 |
+| RL2 | 5 | 13 |
 
-- Обновлены сохранённые файлы схемы, платы и настройки проекта для KiCad 10.
-- Для U4 используется посадочное место `SOT-223-3_TabPin2`, с теплоотводной площадкой на выходе +3V3.
-- Делитель ADC изменён на R26 = 3 кОм и R27 = 1 кОм; номиналы совпадают на схеме и PCB.
-- Добавлены таблицы пользовательских библиотек проекта.
-- Ревизия в штампах и маркировка на B.SilkS приведены к 7.1.
-- README описывает фактическую схему, распиновку и ограничения применения.
+GPIO2 and GPIO15 are not used for the external contacts. Firmware must use the revision 8 mapping, including GPIO16 for SW2, and a Flash configuration compatible with using GPIO10 on this module.
 
-Каталоги `gerbers`, `plots`, `bom` и иллюстрации могут содержать результаты предыдущих ревизий. Они не считаются автоматически обновлёнными для 7.1. Перед изготовлением необходимо заново выполнить ERC/DRC и сформировать производственные файлы из актуального проекта. Существующие замечания проверки и безопасность готового изделия требуют отдельного устранения/подтверждения; версия 7.1 не означает завершённую проверку готовности к производству.
+## Libraries and 3D models
 
-## Иллюстрация платы
+The project uses standard KiCad libraries plus custom libraries referenced by `sym-lib-table` and `fp-lib-table`. These tables currently contain local absolute paths and need adjustment on another machine. Configure the custom symbols/footprints locally and set **`KIKAD_USER_3DMODELS`** (historical spelling) to the custom 3D-model directory. The ESP model also uses a legacy 3D path alias. Embedded symbols and board footprints preserve the current design, but cloning the repository does not install all editing libraries or models.
 
-Изображение из предыдущей ревизии, для общего представления о конструкции:
+The PNG renders are included so the board can be viewed on GitHub without those libraries. Older `images/3dview.png` and `images/top.png` are not revision 8 illustrations.
 
-![Общий вид платы](images/3dview.png)
+## Revision 8 and verification status
+
+- Updated component population and routing; five external 4.7 kΩ input pull-ups added.
+- R26 moved exclusively into the ADC branch; R16 placed on SW3 so it does not bias ADC mode.
+- Separate SW1 and selectable SW3/ADC terminals; J3 expanded to six programming/reset pins.
+- On-board reset/boot buttons and the separate GPIO9 indicator removed; relay GPIO mapping updated.
+- Revision 8 title blocks and board marking, bilingual documentation and new 3D renders.
+
+Checks performed with KiCad 10.0.8 on **2026-11-18**, against the saved project:
+
+| Check | Result |
+|---|---|
+| Schematic component inventory | 64 components, including connectors and test points |
+| DRC after zone refill | 1 error, 60 warnings; 0 unconnected items |
+| Schematic/PCB parity | 0 issues |
+| ERC | 14 errors, 353 warnings |
+
+The DRC error is an incomplete GND thermal relief at **J2.7 on B.Cu** (one spoke instead of the configured minimum of two). Warnings include 32 footprint-library mismatches, 21 silkscreen/edge clearances and 7 isolated copper areas. ERC includes unconnected pins, the unmatched `AC_SENS` hierarchical sheet pin, a pin-type conflict and power-input declarations; most warnings are off-grid endpoints and symbol-library mismatches. The `JP2` text beside J2.6 is a legacy label; that terminal is +3V3.
+
+**Revision 8 is a saved development revision, not a fabrication-ready or safety-certified release.** Remaining electrical/layout issues, motor interlocking, external insulation and final mechanical fit require resolution/validation before manufacture or mains operation. No hardware measurements, new SPICE simulations or full compliance assessment were performed for this documentation update.
