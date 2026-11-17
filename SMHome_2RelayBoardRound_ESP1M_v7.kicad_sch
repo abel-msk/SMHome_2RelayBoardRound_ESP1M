@@ -4125,7 +4125,7 @@
 	)
 	(global_label "SW2"
 		(shape input)
-		(at 166.37 58.42 0)
+		(at 166.37 78.74 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4135,7 +4135,7 @@
 		)
 		(uuid "6dc815e5-9a58-4fff-8a18-b026f2218a76")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 172.6536 58.3406 0)
+			(at 172.6536 78.6606 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4149,7 +4149,7 @@
 	)
 	(global_label "SN1"
 		(shape input)
-		(at 166.37 55.88 0)
+		(at 166.37 76.2 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4159,7 +4159,7 @@
 		)
 		(uuid "72428fa2-4964-44fe-9c85-7cd8e68913a4")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 172.5326 55.8006 0)
+			(at 172.5326 76.1206 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
