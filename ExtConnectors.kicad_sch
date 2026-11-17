@@ -1463,17 +1463,6 @@
 		)
 		(uuid "18de450d-2ef9-4c5f-83dc-0918e137dbb7")
 	)
-	(text "PulledUp by MCU"
-		(exclude_from_sim no)
-		(at 98.552 55.372 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "1ba84e03-4f98-40cc-a3c3-71eea19a77bb")
-	)
 	(text "PulledUp"
 		(exclude_from_sim no)
 		(at 121.92 113.03 0)
@@ -4631,7 +4620,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "cfb3ecfd-3b31-4806-95c2-41a476306528")
 		(property "Reference" "J2"

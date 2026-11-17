@@ -19,4 +19,5 @@
   (lib (name "TerminalBlock_Local")(type "KiCad")(uri "/Users/abel/Documents/KiCad/libs/TerminalBlock_Local.pretty")(options "")(descr "Local user library"))
   (lib (name "TerminalBlock_Wanjie")(type "KiCad")(uri "/Users/abel/Documents/KiCad/libs/TerminalBlock_Wanjie.pretty")(options "")(descr "Local user library"))
   (lib (name "WIFI_Module")(type "KiCad")(uri "/Users/abel/Documents/KiCad/libs/WIFI_Module.pretty")(options "")(descr "Local user library"))
+  (lib (name "Mechanical_Local")(type "KiCad")(uri "${KIPRJMOD}/Mechanical_Local.pretty")(options "")(descr "Project mounting holes"))
 )

@@ -8,7 +8,7 @@ A round, two-layer Wi-Fi controller for roller shutters with two relay outputs, 
 
 ![Revision 8, underside](images/v8-3d-bottom.png)
 
-These images were rendered from the revision 8 PCB in KiCad. Available footprint models are used; some packages are missing or represented by approximate models. The images are not a mechanical clearance check.
+These images were rendered from the revision 8 PCB in KiCad before the subsequent DNP and mounting-hole updates; they show the populated design for illustration. Available footprint models are used; some packages are missing or represented by approximate models. The images are not a mechanical clearance check.
 
 ## Project files
 
@@ -58,6 +58,12 @@ All five channels have **4.7 kΩ pull-ups to +3V3** and **100 nF capacitors to G
 For approximately 2 m runs, use one twisted pair per input: **signal + circuit GND**. Cable insulation must suit the mains-related circuit; Ethernet category alone is not an insulation rating. Keep these cables away from motor/mains switching conductors. Add firmware debounce, for example 20–50 ms of stable input. Use plain input mode when external pull-ups are fitted. GPIO16 has no internal pull-up and should be polled rather than used with ESP8266 Arduino `attachInterrupt`.
 
 For a window contact closed when the window is closed, an open window and a broken cable both produce HIGH. This is not a supervised loop and cannot distinguish those conditions.
+
+### Assembly flags and mounting holes
+
+The through-hole components **C2, C5, F1, J2, J3, J4, L1, R5, RL1, RL2 and VR1** are marked **Do Not Populate (DNP)** in both schematic and PCB. They remain part of the electrical design, but the current assembly marking omits them.
+
+Former TP2–TP5 are now **H1–H4**, non-plated mounting holes with a **1.8 mm drill** at the original centres. They have no electrical pins and are excluded from the BOM and placement files. The matching footprint is included in `Mechanical_Local.pretty`, referenced through `${KIPRJMOD}`.
 
 ## Connector pinouts
 
@@ -143,11 +149,11 @@ Checks performed with KiCad 10.0.8 on **2026-11-18**, against the saved project:
 
 | Check | Result |
 |---|---|
-| Schematic component inventory | 64 components, including connectors and test points |
-| DRC after zone refill | 1 error, 60 warnings; 0 unconnected items |
+| Schematic component inventory | 64 symbols, including connectors and four mechanical holes |
+| DRC after zone refill | 0 errors, 56 warnings; 0 unconnected items |
 | Schematic/PCB parity | 0 issues |
-| ERC | 14 errors, 353 warnings |
+| ERC | 10 errors, 349 warnings |
 
-The DRC error is an incomplete GND thermal relief at **J2.7 on B.Cu** (one spoke instead of the configured minimum of two). Warnings include 32 footprint-library mismatches, 21 silkscreen/edge clearances and 7 isolated copper areas. ERC includes unconnected pins, the unmatched `AC_SENS` hierarchical sheet pin, a pin-type conflict and power-input declarations; most warnings are off-grid endpoints and symbol-library mismatches. The `JP2` text beside J2.6 is a legacy label; that terminal is +3V3.
+The minimum thermal-spoke requirement is now 1 for the board; J2.7 has a local thermal gap of 0.25 mm. DRC warnings include 28 footprint-library mismatches, 21 silkscreen/edge clearances and 7 isolated copper areas. ERC includes unconnected pins, the unmatched `AC_SENS` hierarchical sheet pin, a pin-type conflict and power-input declarations; most warnings are off-grid endpoints and symbol-library mismatches. The `JP2` text beside J2.6 is a legacy label; that terminal is +3V3.
 
 **Revision 8 is a saved development revision, not a fabrication-ready or safety-certified release.** Remaining electrical/layout issues, motor interlocking, external insulation and final mechanical fit require resolution/validation before manufacture or mains operation. No hardware measurements, new SPICE simulations or full compliance assessment were performed for this documentation update.

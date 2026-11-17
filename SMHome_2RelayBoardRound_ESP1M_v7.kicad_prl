@@ -1,7 +1,7 @@
 {
   "board": {
-    "active_layer": 2,
-    "active_layer_preset": "BOT",
+    "active_layer": 0,
+    "active_layer_preset": "TOP",
     "auto_track_width": false,
     "hidden_netclasses": [],
     "hidden_nets": [],
@@ -48,7 +48,7 @@
       "zones",
       "drc_warnings"
     ],
-    "visible_layers": "00000000_00000000_00000000_2200888c",
+    "visible_layers": "00000000_00000000_00000000_82002223",
     "zone_display_mode": 1
   },
   "git": {
@@ -91,11 +91,11 @@
       156,
       141,
       103,
-      71,
+      108,
+      120,
+      108,
       103,
-      103,
-      103,
-      74,
+      95,
       103,
       42
     ],

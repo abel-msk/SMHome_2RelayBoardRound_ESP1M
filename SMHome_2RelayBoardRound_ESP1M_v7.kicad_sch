@@ -11,129 +11,106 @@
 		(company "Home")
 	)
 	(lib_symbols
-		(symbol "Connector:TestPoint"
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(offset 0.762)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "TP"
-				(at 0 6.858 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "TestPoint"
-				(at 0 5.08 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 5.08 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" ""
-				(at 5.08 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "test point"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "test point tp"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_fp_filters" "Pin* Test*"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "TestPoint_0_1"
-				(circle
-					(center 0 3.302)
-					(radius 0.762)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "TestPoint_1_1"
-				(pin passive line
-					(at 0 0 90)
-					(length 2.54)
-					(name "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
+		(symbol "Mechanical:MountingHole"
+		(pin_names
+			(offset 1.016)
 		)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files yes)
+		(duplicate_pin_numbers_are_jumpers no)
+		(property "Reference" "H"
+			(at 0 5.08 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "MountingHole"
+			(at 0 3.175 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Mounting Hole without connection"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_keywords" "mounting hole"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_fp_filters" "MountingHole*"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(symbol "MountingHole_0_1"
+			(circle
+				(center 0 0)
+				(radius 1.27)
+				(stroke
+					(width 1.27)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+		)
+		(embedded_fonts no)
+	)
+
 		(symbol "Connector_Generic:Conn_01x06"
 			(pin_names
 				(offset 1.016)
@@ -4521,7 +4498,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "291cc86e-d7a1-4f14-983b-0e47c854bfea")
 		(property "Reference" "RL1"
 			(at 64.135 125.445 0)
@@ -4771,18 +4748,18 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector:TestPoint")
+		(lib_id "Mechanical:MountingHole")
 		(at 66.04 23.495 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "3c48d2cd-5229-45a5-b687-b8d9c092fc7c")
-		(property "Reference" "TP2"
+		(property "Reference" "H1"
 			(at 67.945 18.9229 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4793,7 +4770,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "TestPoint"
+		(property "Value" "MountingHole"
 			(at 67.945 21.4629 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4804,7 +4781,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm"
+		(property "Footprint" "Mechanical_Local:MountingHole_1.8mm"
 			(at 71.12 23.495 0)
 			(hide yes)
 			(show_name no)
@@ -4826,7 +4803,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Mounting hole, 1.8 mm, non-plated"
 			(at 66.04 23.495 0)
 			(hide yes)
 			(show_name no)
@@ -4848,13 +4825,10 @@
 				)
 			)
 		)
-		(pin "1"
-			(uuid "5b75c145-7c4a-44e8-b0d6-221ae115a3b6")
-		)
 		(instances
 			(project "SMHome_2RelayBoardRound_ESP1M_v7"
 				(path "/1a9f0d73-6986-450b-8da5-dca8d718cd0d"
-					(reference "TP2")
+					(reference "H1")
 					(unit 1)
 				)
 			)
@@ -5025,7 +4999,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "58c7035a-fe82-4ae0-8d7f-f3f832ffe157")
 		(property "Reference" "RL2"
 			(at 155.575 126.08 0)
@@ -5360,18 +5334,18 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector:TestPoint")
+		(lib_id "Mechanical:MountingHole")
 		(at 48.895 24.13 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "8142ef18-e3bd-427f-9146-a67c4b846f9c")
-		(property "Reference" "TP5"
+		(property "Reference" "H4"
 			(at 50.8 19.5579 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5382,7 +5356,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "TestPoint"
+		(property "Value" "MountingHole"
 			(at 50.8 22.0979 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5393,7 +5367,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm"
+		(property "Footprint" "Mechanical_Local:MountingHole_1.8mm"
 			(at 53.975 24.13 0)
 			(hide yes)
 			(show_name no)
@@ -5415,7 +5389,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Mounting hole, 1.8 mm, non-plated"
 			(at 48.895 24.13 0)
 			(hide yes)
 			(show_name no)
@@ -5437,13 +5411,10 @@
 				)
 			)
 		)
-		(pin "1"
-			(uuid "48e5d16e-3cd5-44b1-a618-8401d7827635")
-		)
 		(instances
 			(project "SMHome_2RelayBoardRound_ESP1M_v7"
 				(path "/1a9f0d73-6986-450b-8da5-dca8d718cd0d"
-					(reference "TP5")
+					(reference "H4")
 					(unit 1)
 				)
 			)
@@ -5860,18 +5831,18 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector:TestPoint")
+		(lib_id "Mechanical:MountingHole")
 		(at 80.01 23.495 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "cbdd9225-ee08-40dc-a294-8a12ee286850")
-		(property "Reference" "TP4"
+		(property "Reference" "H3"
 			(at 81.915 18.9229 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5882,7 +5853,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "TestPoint"
+		(property "Value" "MountingHole"
 			(at 81.915 21.4629 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5893,7 +5864,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm"
+		(property "Footprint" "Mechanical_Local:MountingHole_1.8mm"
 			(at 85.09 23.495 0)
 			(hide yes)
 			(show_name no)
@@ -5915,7 +5886,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Mounting hole, 1.8 mm, non-plated"
 			(at 80.01 23.495 0)
 			(hide yes)
 			(show_name no)
@@ -5937,13 +5908,10 @@
 				)
 			)
 		)
-		(pin "1"
-			(uuid "f13d37f8-6de4-4b36-94f9-9f078044a9f1")
-		)
 		(instances
 			(project "SMHome_2RelayBoardRound_ESP1M_v7"
 				(path "/1a9f0d73-6986-450b-8da5-dca8d718cd0d"
-					(reference "TP4")
+					(reference "H3")
 					(unit 1)
 				)
 			)
@@ -6273,7 +6241,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "faaaf002-8777-4c15-8800-e8212aafb91d")
 		(property "Reference" "J3"
 			(at 35.179 47.625 0)
@@ -6446,18 +6414,18 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector:TestPoint")
+		(lib_id "Mechanical:MountingHole")
 		(at 34.925 24.13 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "fe3fc561-89be-4eca-a6ce-4fdb7d9c4659")
-		(property "Reference" "TP3"
+		(property "Reference" "H2"
 			(at 36.83 19.5579 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6468,7 +6436,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "TestPoint"
+		(property "Value" "MountingHole"
 			(at 36.83 22.0979 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6479,7 +6447,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm"
+		(property "Footprint" "Mechanical_Local:MountingHole_1.8mm"
 			(at 40.005 24.13 0)
 			(hide yes)
 			(show_name no)
@@ -6501,7 +6469,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Mounting hole, 1.8 mm, non-plated"
 			(at 34.925 24.13 0)
 			(hide yes)
 			(show_name no)
@@ -6523,13 +6491,10 @@
 				)
 			)
 		)
-		(pin "1"
-			(uuid "b1688d45-b0ac-4ee2-9abc-c2ece42b04d4")
-		)
 		(instances
 			(project "SMHome_2RelayBoardRound_ESP1M_v7"
 				(path "/1a9f0d73-6986-450b-8da5-dca8d718cd0d"
-					(reference "TP3")
+					(reference "H2")
 					(unit 1)
 				)
 			)
