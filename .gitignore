@@ -8,3 +8,6 @@
 
 # Local safety copies of project configuration
 *.bak-before-*
+
+# KiCad recovery files
+_autosave-*
