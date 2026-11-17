@@ -1,7 +1,5 @@
 (fp_lib_table
   (version 7)
-  (lib (name "SHMBRL3")(type "KiCad")(uri "${KIPRJMOD}/SMHome_2RelayBoardRound_ESP1M_v7.pretty")(options "")(descr ""))
-  (lib (name "Library")(type "KiCad")(uri "${KIPRJMOD}/Library.pretty")(options "")(descr ""))
   (lib (name "Button_switch_SMD_Local")(type "KiCad")(uri "/Users/abel/Documents/KiCad/libs/Button_switch_SMD_Local.pretty")(options "")(descr "Local user library"))
   (lib (name "Connector_Degson")(type "KiCad")(uri "/Users/abel/Documents/KiCad/libs/Connector_Degson.pretty")(options "")(descr "Local user library"))
   (lib (name "Connector_Degson_2EDG")(type "KiCad")(uri "/Users/abel/Documents/KiCad/libs/Connector_Degson_2EDG.pretty")(options "")(descr "Local user library"))

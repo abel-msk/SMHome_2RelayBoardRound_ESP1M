@@ -111,7 +111,7 @@ J2.2 одновременно связан со SW1/GPIO10 через R11. В р
 
 Открыть `SMHome_2RelayBoardRound_ESP1M_v7.kicad_pro` в **KiCad 10**. Текущие сохранённые файлы используют формат KiCad 10.
 
-В репозитории находятся `Library.kicad_sym`, `SHMBRL3-eagle-import.kicad_sym`, `Library.pretty` и `SMHome_2RelayBoardRound_ESP1M_v7.pretty`. Таблицы `sym-lib-table` и `fp-lib-table` дополнительно подключают пользовательские библиотеки с этого компьютера:
+Схема и плата используют стандартные библиотеки KiCad и пользовательские библиотеки этого компьютера. Неиспользуемые копии библиотек в папке проекта удалены. Таблицы `sym-lib-table` и `fp-lib-table` подключают пользовательские библиотеки по следующим путям:
 
 - Символы: `/Users/abel/Documents/KiCad/Symbols`.
 - Посадочные места: `/Users/abel/Documents/KiCad/libs`.
