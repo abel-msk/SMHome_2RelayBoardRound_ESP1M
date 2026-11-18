@@ -1,18 +1,18 @@
-# SMHome 2RelayBoardRound ESP-01M — revision 8.1
+# SMHome 2RelayBoardRound ESP-01M — revision 8.2
 
 **English** · [Русский](README.ru.md)
 
 A round, two-layer Wi-Fi controller for roller shutters with two relay outputs, three wall-button inputs and two window reed-switch inputs. The controller is an **ESP-01M module with ESP8285 and 1 MB Flash**. Firmware is not included.
 
-![Revision 8, component side](images/v8-3d-top.png)
+![Revision 8.2, component side](images/v8.2-3d-top.png)
 
-![Revision 8, underside](images/v8-3d-bottom.png)
+![Revision 8.2, underside](images/v8.2-3d-bottom.png)
 
-These images were rendered from the revision 8 PCB in KiCad before the subsequent assembly-flag and mounting-hole updates; they show the populated design for illustration. Available footprint models are used; some packages are missing or represented by approximate models. The images are not a mechanical clearance check.
+These images were rendered from the revision 8.2 PCB in KiCad, including the updated power-connector labels and mounting holes. Available footprint models are used; some packages are missing or represented by approximate models. The images are not a mechanical clearance check.
 
 ## Project files
 
-Open `SMHome_2RelayBoardRound_ESP1M_v7.kicad_pro` in **KiCad 10**. Filenames retain the historical `_v7` suffix; `VERSION`, schematic/PCB title blocks and board revision silkscreen identify the current revision as **8.1**.
+Open `SMHome_2RelayBoardRound_ESP1M_v7.kicad_pro` in **KiCad 10**. Filenames retain the historical `_v7` suffix; `VERSION`, schematic/PCB title blocks and board revision silkscreen identify the current revision as **8.2**.
 
 | File | Contents |
 |---|---|
@@ -114,11 +114,13 @@ The former on-board reset and boot buttons are removed. To enter the bootloader,
 
 | Pin | Net | Function |
 |---:|---|---|
-| 1 | GND | Electronics common, not protective earth |
-| 2 | N | Mains neutral |
+| 1 | N | Motor neutral; directly connected to J4.2 |
+| 2 | N | Mains neutral; directly connected to J4.1 |
 | 3 | L | Mains live and relay contact supply |
 | 4 | RL2 | Switched live through relay RL2 |
 | 5 | RL1 | Switched live through relay RL1 |
+
+**Revision 8.2 changes J4.1 from electronics GND to motor neutral N.** J4.1 and J4.2 are the same unswitched neutral net; J4 no longer exposes circuit GND. N is not GND or PE. The supply remains non-isolated, and the GND terminals on J2/J3 remain mains-related.
 
 F1 protects only the board supply branch, not motor current through the relay contacts. Provide appropriate upstream motor/wiring protection separately.
 
@@ -133,11 +135,17 @@ GPIO2 and GPIO15 are not used for the external contacts. Firmware must use the r
 
 ## Libraries and 3D models
 
-The project uses standard KiCad libraries plus custom libraries referenced by `sym-lib-table` and `fp-lib-table`. These tables currently contain local absolute paths and need adjustment on another machine. Configure the custom symbols/footprints locally and set **`KIKAD_USER_3DMODELS`** (historical spelling) to the custom 3D-model directory. The ESP model also uses a legacy 3D path alias. Embedded symbols and board footprints preserve the current design, but cloning the repository does not install all editing libraries or models.
+The project uses standard KiCad libraries plus custom libraries referenced by `sym-lib-table` and `fp-lib-table`. These tables currently contain local absolute paths and need adjustment on another machine. Configure the custom symbols/footprints locally and set **`KIKAD_USER_3DMODELS`** (historical spelling) to the custom 3D-model directory. The ESP-01M STEP and STEP-derived WRL use matching offsets and the same custom-model variable; STEP is the visible model. Embedded symbols and board footprints preserve the current design, but cloning the repository does not install all editing libraries or models.
 
-The PNG renders are included so the board can be viewed on GitHub without those libraries. Older `images/3dview.png` and `images/top.png` are not revision 8 illustrations.
+The PNG renders are included so the board can be viewed on GitHub without those libraries. Older `images/3dview.png` and `images/top.png` are not revision 8.2 illustrations.
 
-## Revision 8.1 and verification status
+## Revision 8.2 and verification status
+
+Changes in 8.2:
+
+- J4.1 changed from GND to motor neutral N, directly connected to mains neutral on J4.2.
+- Power-connector silkscreen corrected on both sides; revision metadata and board marking updated to 8.2.
+- ESP-01M model references corrected; new 3D renders and bilingual connector documentation.
 
 Changes in 8.1:
 
@@ -158,10 +166,10 @@ Checks performed with KiCad 10.0.8 on **2026-11-18**, against the saved project:
 | Check | Result |
 |---|---|
 | Schematic component inventory | 64 symbols, including connectors and four mechanical holes |
-| DRC after zone refill | 0 errors, 56 warnings; 0 unconnected items |
+| DRC after zone refill | 0 errors, 55 warnings; 0 unconnected items |
 | Schematic/PCB parity | 0 issues |
 | ERC | 10 errors, 349 warnings |
 
-The minimum thermal-spoke requirement is now 1 for the board; J2.7 has a local thermal gap of 0.25 mm. DRC warnings include 28 footprint-library mismatches, 21 silkscreen/edge clearances and 7 isolated copper areas. ERC includes unconnected pins, the unmatched `AC_SENS` hierarchical sheet pin, a pin-type conflict and power-input declarations; most warnings are off-grid endpoints and symbol-library mismatches. The `JP2` text beside J2.6 is a legacy label; that terminal is +3V3.
+The minimum thermal-spoke requirement is now 1 for the board; J2.7 has a local thermal gap of 0.25 mm. DRC warnings include 27 footprint-library mismatches, 21 silkscreen/edge clearances and 7 isolated copper areas. ERC includes unconnected pins, the unmatched `AC_SENS` hierarchical sheet pin, a pin-type conflict and power-input declarations; most warnings are off-grid endpoints and symbol-library mismatches. The `JP2` text beside J2.6 is a legacy label; that terminal is +3V3.
 
-**Revision 8.1 is a saved development revision, not a fabrication-ready or safety-certified release.** Remaining electrical/layout issues, motor interlocking, external insulation and final mechanical fit require resolution/validation before manufacture or mains operation. No hardware measurements, new SPICE simulations or full compliance assessment were performed for this documentation update.
+**Revision 8.2 is a saved development revision, not a fabrication-ready or safety-certified release.** Remaining electrical/layout issues, motor interlocking, external insulation and final mechanical fit require resolution/validation before manufacture or mains operation. No hardware measurements, new SPICE simulations or full compliance assessment were performed for this documentation update.

@@ -7,7 +7,7 @@
 	(title_block
 		(title "SMHome 2RelayBoardRound ESP-01M")
 		(date "2026-11-18")
-		(rev "8.1")
+		(rev "8.2")
 		(company "Home")
 	)
 	(lib_symbols

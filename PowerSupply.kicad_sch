@@ -6,7 +6,7 @@
 	(paper "A4")
 	(title_block
 		(date "2026-11-18")
-		(rev "8.1")
+		(rev "8.2")
 	)
 	(lib_symbols
 		(symbol "+5V_1"
@@ -4085,30 +4085,6 @@
 			)
 		)
 	)
-	(global_label "GND"
-		(shape input)
-		(at 66.04 73.66 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "2f59e250-d955-48f9-9ce4-67c54563245a")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 72.3236 73.5806 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-	)
 	(global_label "RL1"
 		(shape input)
 		(at 66.04 83.82 0)
@@ -4194,6 +4170,30 @@
 		(uuid "75db576f-931c-407d-87fd-b2e2385674cb")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 71.9607 81.2006 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+	)
+	(global_label "N"
+		(shape input)
+		(at 66.04 73.66 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "99520b3d-c3b1-4881-baad-a906fbf7309d")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 69.7836 73.5806 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)

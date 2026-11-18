@@ -6,7 +6,7 @@
 	(paper "A4")
 	(title_block
 		(date "2026-11-18")
-		(rev "8.1")
+		(rev "8.2")
 	)
 	(lib_symbols
 		(symbol "C_Small_1"
